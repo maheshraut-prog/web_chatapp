@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>chat app</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="style/style.css" />
+</head>
+
+<body>
+  <div id="wrapper">
+    <!-- left side nav -->
+    <div class="leftside">
+      <ul class="nav sidebar">
+        <a href="#" class="text-center" style="margin:40px 0px 20px">
+          <img src="" width="70px" class="rounded-circle" alt="" id="profile" />
+          <p id="name" style="color:black;margin:10px 0px 0px"></p>
+        </a>
+
+        <li class="nav__menuList">
+          <a href="#"><img src="assets/icons/home.svg" alt="" /></a>
+          <span>HOME</span>
+        </li>
+        <li class="nav__menuList">
+          <a href="#"><img src="assets/icons/chat.png" alt="" /></a>
+          <span class="nav__menuList__active">CHAT</span>
+        </li>
+        <li class="nav__menuList">
+          <a href="#"><img src="assets/icons/contact.png" alt="" /></a>
+          <span>CONTACT</span>
+        </li>
+        <li class="nav__menuList">
+          <a href="#"><img src="assets/icons/notification.png" alt="" /></a>
+          <span>NOTIFICATION</span>
+        </li>
+        <li class="nav__menuList">
+          <a href="#"><img src="assets/icons/calendar.png" alt="" /></a>
+          <span>CALENDAR</span>
+        </li>
+        <li class="nav__menuList">
+          <a href="#"><img src="assets/icons/setting.png" alt="" /></a>
+          <span>SETTING</span>
+        </li>
+
+        <li class="nav__menuList logout" id="logout">
+          <a href="#"><img src="assets/icons/logout.png" alt="" /></a>
+          <span>LOGOUT</span>
+        </li>
+
+
+      </ul>
+    </div>
+
+
+    <!-- the main chat window  -->
+    <div id="content-wrapper">
+      <div class="row ">
+
+
+        <div class="col-lg-4 chatinfo">
+          <!-- this is my chats wala heading  -->
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <h2>Chats</h2>
+              <p>Recent chats</p>
+            </div>
+            <div>
+              <button class="btn btn-primary">+ Create new</button>
+            </div>
+          </div>
+
+          <!-- this is my search bar -->
+          <div>
+            <div class="input-group">
+              <div class="input-group-append">
+                <button class="btn" type="button">
+                  <i class="fa fa-search fa-sm" style="font-size: 15px"></i>
+                </button>
+              </div>
+              <input type="text" class="content__input" placeholder="Search for..." aria-label="Search"
+                aria-describedby="basic-addon2" />
+            </div>
+          </div>
+
+
+
+          <!-- this is my message container  -->
+          <div id="message-container">
+
+          
+          </div>
+
+        </div>
+
+        <div class="col-lg-8" style="
+          height: 570px;
+          background-color: white;
+          padding: 10px;
+          border-radius: 20px;
+          max-width:630px;
+        ">
+          <!-- chat window head  -->
+          <div class="chatheader mt-2">
+            <div class="message_head d-flex  align-items-center">
+              <img id="profile"
+                src=""
+                class="rounded-circle" width="40px" />
+
+              <p id="name" style="margin: 0; padding: 0; padding-left: 10px; flex: 1">
+             
+              </p>
+              <span id="head-status" style="color: rgb(0, 255, 0)">online</span>
+            </div>
+
+            <hr />
+          </div>
+
+          <!-- the chat messages  -->
+          <div class="chatmessages" id="chatmessages">
+       
+          </div>
+
+          <!-- chat footer -->
+          <div class="chatfooter">
+            <hr />
+            <div class="d-flex">
+              <button class="btn btn-primary rounded-circle">
+                <img src="assets/icons/plus.svg" height="18px" alt="" />
+              </button>
+              <input id="message_text" type="text" class="content__input flex-1" placeholder="Search for..." aria-label="Search"
+                aria-describedby="basic-addon2" style="margin-left: 10px" />
+              <button id="message_send" class="btn btn-primary rounded-circle">
+                <img src="assets/icons/navigation-2.svg" height="18px" alt="" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-analytics.js"></script>
+  <!-- this is cdn of authentication -->
+
+  <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
+
+    <!-- this is cdn for firestore -->
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+  
+  <script src="js/config.js"></script>
+  <script src="js/messaging.js"></script>
+</body>
+
+</html>
